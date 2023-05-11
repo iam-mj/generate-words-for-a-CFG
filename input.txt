@@ -1,0 +1,10 @@
+S A B C D E
+a b c d e ^
+6
+S
+S -> aA | dE
+A -> aB | aS
+B -> bC
+C -> bD | bB
+D -> cD | e | ^
+E -> d
