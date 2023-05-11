@@ -60,7 +60,7 @@ while vremSaContinuam:
                 elif terminale == False:
                     sim_term = prod[:len(prod) - 1]
                     simbol_urm = prod[len(prod) - 1]
-                    lungime_ramasa = l - 1
+                    lungime_ramasa = l - (len(prod) - 1) #minus neterminalul
                     if lungime_ramasa in R[simbol_urm]:
                         if l not in R[x]:
                             R[x][l] = []
@@ -74,9 +74,12 @@ while vremSaContinuam:
     if n not in R[S]:
         print("Nu putem genera cuvinte de lungimea data")
     else:
-        print("Putem genera urmatoarele cuvinte de lungime", n)
-        for cuv in R[S][n]:
-            print(cuv, end = ' ')
+        if n != 0:
+            print("Putem genera urmatoarele cuvinte de lungime", n)
+            for cuv in R[S][n]:
+                print(cuv, end = ' ')
+        else:
+            print("Putem genera cuvantul vid: \n^")
 
     vremSaContinuam = int(input("\nDoriti sa mai introduceti o lungime n? [0/1]: "))
 
