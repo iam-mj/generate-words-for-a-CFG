@@ -48,7 +48,7 @@ while vremSaContinuam:
         for x in N:
             for prod in D[x]:
                 terminale = True #verificam daca avem doar terminale in productie
-                if prod[len(prod) - 1] in N:
+                if prod[len(prod) - 1] in N: #verificam daca ultimul simbol e terminal
                     terminale = False
                 if prod == '^':
                     prod = ''
@@ -58,10 +58,12 @@ while vremSaContinuam:
                     else:
                         R[x][l] = [prod]
                 elif terminale == False:
-                    sim_term = prod[:len(prod) - 1]
-                    simbol_urm = prod[len(prod) - 1]
+                    sim_term = prod[:len(prod) - 1] #simbolurile terminale
+                    simbol_urm = prod[len(prod) - 1] #simbolul neterminal
                     lungime_ramasa = l - (len(prod) - 1) #minus neterminalul
-                    if lungime_ramasa in R[simbol_urm]:
+                    #daca stim deja ca din simbol_urm putem genera un cuv de lungime_ramasa 
+                    #il concatenam cu sim_term si il trecem in R
+                    if lungime_ramasa in R[simbol_urm]: 
                         if l not in R[x]:
                             R[x][l] = []
                         for cuv in R[simbol_urm][lungime_ramasa]:
